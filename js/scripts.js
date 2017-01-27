@@ -18,12 +18,30 @@ Pizza.prototype.sizePrice = function() {
   }
 };
 
+//CAN I DO THIS AS A FOREACH LOOP INSTEAD OF IF STATEMENTS??
+Pizza.prototype.toppingsPrice = function() {
+  if (numberOfToppingsSelected === 0) {
+  } else if (numberOfToppingsSelected === 1) {
+    this.price +=2;
+  } else if (numberOfToppingsSelected === 2) {
+    this.price +=4;
+  } else if (numberOfToppingsSelected === 3) {
+    this.price +=6;
+  } else if (numberOfToppingsSelected === 4) {
+    this.price +=8;
+  } else {
+    this.price +=10;
+  }
+
+}
+
 
 
 
 //front-end logic
 $(document).ready(function(){
   var inputtedSize = $("select#size").val();
+  var numberOfToppingsSelected = $('input:checkbox:checked').length;
 
   $("form#order-form").submit(function(event){
       event.preventDefault();
