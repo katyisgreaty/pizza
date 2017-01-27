@@ -19,21 +19,20 @@ Pizza.prototype.sizePrice = function() {
 };
 
 //CAN I DO THIS AS A FOREACH LOOP INSTEAD OF IF STATEMENTS??
-// Pizza.prototype.toppingsPrice = function() {
-//   if (this.selectedToppings === (toppingsArray.length - toppingsArray.length)) {
-//     this.price+= 0;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-1)) {
-//     this.price +=2;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-2)) {
-//     this.price +=4;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-3)) {
-//     this.price +=6;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-4)) {
-//     this.price +=8;
-//   } else {
-//     this.price +=10;
-//   }
-// };
+Pizza.prototype.toppingsPrice = function() {
+  if (this.selectedToppings === (toppingsArray.length - toppingsArray.length)) {
+  } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-1)) {
+    this.price +=2;
+  } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-2)) {
+    this.price +=4;
+  } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-3)) {
+    this.price +=6;
+  } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-4)) {
+    this.price +=8;
+  } else {
+    this.price +=10;
+  }
+};
 
 
 
@@ -50,17 +49,16 @@ $(document).ready(function(){
       event.preventDefault();
 
       myPizza.sizePrice();
-      // myPizza.toppingsPrice();
+      myPizza.toppingsPrice();
 
       $(".results").show();
 
       $("input:checkbox[name=toppings]:checked").each(function(){
         var inputtedToppings = $(this).val();
-        toppingsArray.push(inputtedToppings);
+        toppingsArray.
         $('#toppingsResults').append(inputtedToppings + ", ");
       });
 
-      $("#cost").text(myPizza.price);
       $("#pizzaSizeResults").text(inputtedSize);
     });
 
