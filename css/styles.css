@@ -13,6 +13,44 @@ span#subtitle {
 .header {
   text-align: center;
   font-size: 70px;
-  color: #7F0000;
-  background-color: #D5B480;
+  color: #f1d7c3;
+  background-color: #362e23;
 }
+
+body {
+  background-color: #cacdc7;
+}
+
+.form-control, .form-group, p {
+  color: #cacdc7;
+  font-size: 20px;
+}
+
+#sizeTitle, #topTitle {
+  background-color: #978e7a;
+  color: #f1d7c3;
+  font-size: 28px;
+}
+
+#topPanel, #sizePanel {
+  background-color: #7da3be;
+}
+
+.form-control {
+  color: #7da3be;
+}
+
+
+
+#d60000
+#e56d6f
+#f69075
+#f8b390
+#e8d9db
+
+
+#362e23
+#978e7a
+#cacdc7
+#f1d7c3
+#7da3be
