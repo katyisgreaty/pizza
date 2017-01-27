@@ -1,65 +1,70 @@
 //back-end logic
 var sizeArray = ['Small (10")', 'Medium (12")', 'Large (14")'];
-var toppingsArray = ["Pepperoni", "Pineapple", "Diced tomatoes", "Pesto", "Basil", "Extra cheese", "Olives"];
+var toppingsArray = [];
 
-var Pizza = function(size, toppings, price) {
+var Pizza = function(size, toppings) {
   this.selectedSize = size;
   this.selectedToppings = toppings;
   this.price = 12;
 };
 
-// Pizza.prototype.s
-
 Pizza.prototype.sizePrice = function() {
+  console.log("calculating price");
   if (this.selectedSize === sizeArray[0]) {
     this.price += 0;
-  } else if (this.selectedSize === (sizeArray[1])) {
+    console.log("price should be 12");
+  } else if (this.selectedSize === sizeArray[1]) {
     this.price += 2;
+    console.log("price should be 14");
   } else if (this.selectedSize === sizeArray[2]) {
     this.price += 4;
   }
 };
 
-
 //CAN I DO THIS AS A FOREACH LOOP INSTEAD OF IF STATEMENTS??
 // Pizza.prototype.toppingsPrice = function() {
-//   if (numberOfToppingsSelected === 0) {
-//   } else if (numberOfToppingsSelected === 1) {
+//   if (this.selectedToppings === (toppingsArray.length - toppingsArray.length)) {
+//     this.price+= 0;
+//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-1)) {
 //     this.price +=2;
-//   } else if (numberOfToppingsSelected === 2) {
+//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-2)) {
 //     this.price +=4;
-//   } else if (numberOfToppingsSelected === 3) {
+//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-3)) {
 //     this.price +=6;
-//   } else if (numberOfToppingsSelected === 4) {
+//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-4)) {
 //     this.price +=8;
 //   } else {
 //     this.price +=10;
 //   }
-//
-// }
+// };
 
 
 
 
 //front-end logic
 $(document).ready(function(){
-  var inputtedSize = $("#size").val();
-  var numberOfToppingsSelected = $('input:checkbox:checked').length;
+  var inputtedSize = $("select#size").val();
+  var numberOfToppingsSelected = toppingsNumber
+  var toppingsNumber = $("input:checkbox[name=toppings]:checked").length;
   var myPizza = new Pizza (inputtedSize, numberOfToppingsSelected);
 
-  myPizza.selectedSize();
-  // myPizza.toppingsPrice();
 
   $("form#order-form").submit(function(event){
       event.preventDefault();
 
+      myPizza.sizePrice();
+      // myPizza.toppingsPrice();
+
       $(".results").show();
+
       $("input:checkbox[name=toppings]:checked").each(function(){
         var inputtedToppings = $(this).val();
-
+        toppingsArray.push(inputtedToppings);
         $('#toppingsResults').append(inputtedToppings + ", ");
       });
-    });
-    $("#pizzaSizeResults").text(inputtedSize);
 
-})
+      $("#cost").text(myPizza.price);
+      $("#pizzaSizeResults").text(inputtedSize);
+    });
+
+});
