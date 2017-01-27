@@ -11,11 +11,19 @@
 <body>
   <h1 class = "jumbotron">Pete's, uh....<br><span id = "subtitle">Pizzeria</span></h1>
   <div class="container">
-    <form id="transportation_survey">
+    <form id="order-form">
+      <div class="row size">
+        <p>Select your size:</p>
+        <select class="form-control" id="size">
+          <option>Small (10")</option>
+          <option>Medium (12")</option>
+          <option>Large (14")</option>
+        </select>
+      </div>
       <div class="row">
         <div class="form-group">
           <p>Choose your toppings:</p>
-          <input type="checkbox" name="toppings" value="pepperoni"> Pepperoni<br>
+          <input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>
           <input type="checkbox" name="toppings" value="pineapple">Pineapple<br>
           <input type="checkbox" name="toppings" value="tomato">Diced tomatoes<br>
           <input type="checkbox" name="toppings" value="pesto">Pesto<br>
@@ -24,18 +32,15 @@
           <input type="checkbox" name="toppings" value="olive">Olives<br>
         </div>
       </div>
-      <div class="row">
-        <select class="form-control" id="size">
-          <option>Small (10")</option>
-          <option>Medium (12")</option>
-          <option>Large (14")</option>
-        </select>
-      </div>
       <br>
       <div class="row">
         <button type="submit" class = "btn btn-warning">Complete Your Order</button>
       </div>
     </form>
+    <br>
+    <div class="row results">
+      <p>Your order: <span id = "pizzaSizeResults"></span> pizza with <span id = "toppingsResults"></span> and, of course, cheese and red sauce. Your total cost is $<span id = "cost"></span>.00.</p>
+    </div>
   </div>
 </body>
 </html>
