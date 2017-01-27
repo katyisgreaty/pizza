@@ -5,8 +5,18 @@ var toppingsArray = ["Pepperoni", "Pineapple", "Diced tomatoes", "Pesto", "Basil
 var Pizza = function(size, toppings) {
   this.selectedSize = size;
   this.selectedToppings = toppings;
-}
+  this.price = 12;
+};
 
+Pizza.prototype.sizePrice = function() {
+  if (this.selectedSize === sizeArray[0]) {
+    this.price += 0;
+  } else if (this.selectedSize === sizeArray[1]) {
+    this.price += 2;
+  } else if (this.selectedSize === sizeArray[2]) {
+    this.price += 4;
+  }
+};
 
 
 
@@ -14,14 +24,15 @@ var Pizza = function(size, toppings) {
 //front-end logic
 $(document).ready(function(){
   var inputtedSize = $("select#size").val();
-  var inputtedToppings = $("")
 
   $("form#order-form").submit(function(event){
       event.preventDefault();
+
       $(".results").show();
       $("input:checkbox[name=toppings]:checked").each(function(){
-        var toppingsPicked = $(this).val();
-        $('#toppingsResults').append(toppingsPicked + ", ");
+        var inputtedToppings = $(this).val();
+
+        $('#toppingsResults').append(inputtedToppings + ", ");
       });
     });
 
