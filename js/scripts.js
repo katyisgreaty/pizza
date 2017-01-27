@@ -1,70 +1,80 @@
-//back-end logic
-var sizeArray = ['Small (10")', 'Medium (12")', 'Large (14")'];
-var toppingsArray = [];
+//bastard movie and pizza child
 
-var Pizza = function(size, toppings) {
-  this.selectedSize = size;
+// Business logic goes here.....
+var sizeArray = ["Small (10 inch)", "Medium (12 inch)", "Large (14 inch)"];
+var toppingsArray = ["Pepperoni", "Pineapple", "Diced tomatoes", "Pesto", "Basil", "Extra cheese", "Olives"]
+
+
+var Pizza = function(size, toppings, price){
+  this.selectedsize = size;
   this.selectedToppings = toppings;
   this.price = 12;
 };
 
 Pizza.prototype.sizePrice = function() {
-  console.log("calculating price");
-  if (this.selectedSize === sizeArray[0]) {
-    this.price += 0;
-    console.log("price should be 12");
-  } else if (this.selectedSize === sizeArray[1]) {
-    this.price += 2;
-    console.log("price should be 14");
-  } else if (this.selectedSize === sizeArray[2]) {
+  if((this.selectedSize === sizeArray[0]) || (this.selectedSize === sizeArray[1])) {
+    this.price;
+  } else {
     this.price += 4;
+    console.log("large price calculated");
   }
+}
+
+Pizza.prototype.toppingsPrice = function() {
+  if((this.selectedToppings === timeArray[0]) || (this.selectedTime === timeArray[1])) {
+    this.price -= 5;
+    console.log("it's a matinee!");
+  } else {
+  }
+}
+Ticket.prototype.ageDiscount = function() {
+if(this.selectedUserAge === "Senior (Age 61 or above)") {
+  this.price -= 5;
+  } else {
+}
 };
 
-//CAN I DO THIS AS A FOREACH LOOP INSTEAD OF IF STATEMENTS??
-// Pizza.prototype.toppingsPrice = function() {
-//   if (this.selectedToppings === (toppingsArray.length - toppingsArray.length)) {
-//     this.price+= 0;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-1)) {
-//     this.price +=2;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-2)) {
-//     this.price +=4;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-3)) {
-//     this.price +=6;
-//   } else if (this.selectedToppings === toppingsArray.length - (toppingsArray.length-4)) {
-//     this.price +=8;
-//   } else {
-//     this.price +=10;
-//   }
-// };
-
-
-
-
-//front-end logic
+// User logic goes here ....
 $(document).ready(function(){
-  var inputtedSize = $("select#size").val();
-  var numberOfToppingsSelected = toppingsNumber
-  var toppingsNumber = $("input:checkbox[name=toppings]:checked").length;
-  var myPizza = new Pizza (inputtedSize, numberOfToppingsSelected);
+  $("form#tickets").submit(function(event){
+    event.preventDefault();
+
+    var inputtedName = $("input#name").val();
+    var inputtedEmail = $("input#email").val();
+    var inputtedMovie = $("select#movie").val();
+    var inputtedNumber = $("input#number").val();
+    var inputtedTime = $("select#time").val();
+    var inputtedUserAge = $("select#age").val();
+    var myTicket = new Ticket(inputtedName, inputtedEmail, inputtedMovie, inputtedNumber, inputtedTime, inputtedUserAge);
+
+    myTicket.classicDiscount();
+    myTicket.matineeDiscount();
+    myTicket.ageDiscount();
+
+    var infoOutput = ("Your Name: " + myTicket.selectedName +
+                      "<li>" + "Your email: " + myTicket.selectedEmail +
+                      "</li><li>" + "Your movie: " + myTicket.selectedMovie +
+                      "</li><li>" + " Number of tickets booked: " +  myTicket.selectedNumber +
+                      "</li><li>" + " Showtime: " +myTicket.selectedTime +
+                      "</li><li>" + " Ticket type: " + myTicket.selectedUserAge);
+
+    var totalPrice = "Your total price is $" + (myTicket.price * ($("input#number").val())) + ".00";
+
+  $("span.output").last().append("<li>" + infoOutput + "</li><li>" + totalPrice + "</li>");
+
+  // $("input#new-first-name").val("");
+
+  function resetFields() {
+      $("select#movie").val("");
+      $("input#number").val("");
+      $("select#time").val("");
+      $("select#age").val("");
+
+  }
+
+  resetFields();
 
 
-  $("form#order-form").submit(function(event){
-      event.preventDefault();
-
-      myPizza.sizePrice();
-      // myPizza.toppingsPrice();
-
-      $(".results").show();
-
-      $("input:checkbox[name=toppings]:checked").each(function(){
-        var inputtedToppings = $(this).val();
-        toppingsArray.push(inputtedToppings);
-        $('#toppingsResults').append(inputtedToppings + ", ");
-      });
-
-      $("#cost").text(myPizza.price);
-      $("#pizzaSizeResults").text(inputtedSize);
-    });
+  });
 
 });
