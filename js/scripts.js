@@ -39,30 +39,32 @@ Pizza.prototype.toppingsPrice = function() {
 //front-end logic
 $(document).ready(function(){
   $("form#order-form").submit(function(event){
-      event.preventDefault();
-      var inputtedSize = $("select.form-control").val();
-      var inputtedToppings = $("input.toppings").val();
-      var myPizza = new Pizza (inputtedSize, inputtedToppings, calculatedPrice);
-      var calculatedPrice = myPizza.price;
+    event.preventDefault();
+    var inputtedSize = $("select.form-control").val();
+    var inputtedToppings = $("input.toppings").val();
+    var myPizza = new Pizza (inputtedSize, inputtedToppings, calculatedPrice);
+    var calculatedPrice = myPizza.price;
 
-      $(".results").show();
+    $(".results").show();
 
-      sizeArray.push(inputtedSize);
+    sizeArray.push(inputtedSize);
 
-      $("input:checkbox[name=toppings]:checked").each(function(){
-        var inputtedToppings = $(this).val();
-        toppingsArray.push(inputtedToppings);
-        $('#toppingsResults').append(inputtedToppings + ", ");
-      });
-
-      myPizza.toppingsPrice();
-      myPizza.sizePrice();
-
-      $("#cost").text(myPizza.price);
-      $("#pizzaSizeResults").text(inputtedSize);
-      myPizza.price = 12;
-      sizeArray = [];
-      toppingsArray = [];
+    $("input:checkbox[name=toppings]:checked").each(function(){
+      var inputtedToppings = $(this).val();
+      toppingsArray.push(inputtedToppings);
+      $('#toppingsResults').append(inputtedToppings + ", ");
     });
+
+    myPizza.toppingsPrice();
+    myPizza.sizePrice();
+
+    $("#cost").text(myPizza.price);
+    $("#pizzaSizeResults").text(inputtedSize);
+    myPizza.price = 12;
+    sizeArray = [];
+    toppingsArray = [];
+    // $("span#toppingsResults").val("");
+    // $("input:checkbox[name=toppings]:checked").removeAttr("checked, false");
+  });
 
 });
