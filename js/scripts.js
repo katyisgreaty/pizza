@@ -60,6 +60,9 @@ $(document).ready(function(){
 
       $("#cost").text(myPizza.price);
       $("#pizzaSizeResults").text(inputtedSize);
+      myPizza.price = 12;
+      sizeArray = [];
+      toppingsArray = [];
     });
 
 });
