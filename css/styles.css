@@ -9,3 +9,10 @@ span#subtitle {
 .results {
   display: none;
 }
+
+.header {
+  text-align: center;
+  font-size: 70px;
+  color: #7F0000;
+  background-color: #D5B480;
+}

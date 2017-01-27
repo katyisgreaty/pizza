@@ -33,6 +33,7 @@ $(document).ready(function(){
         var inputtedToppings = $(this).val();
 
         $('#toppingsResults').append(inputtedToppings + ", ");
+        $("#pizzaSizeResults").text(inputtedSize);
       });
     });
 
