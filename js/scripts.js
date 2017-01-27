@@ -1,5 +1,5 @@
 //back-end logic
-var sizeArray = ['Small (10 inches)', 'Medium (12 inches)', 'Large (14 inches)'];
+var sizeArray = ['Small (10")', 'Medium (12")', 'Large (14")'];
 var toppingsArray = [];
 
 var Pizza = function(size, toppings, price) {
@@ -39,7 +39,7 @@ Pizza.prototype.toppingsPrice = function() {
 
 //front-end logic
 $(document).ready(function(){
-  var inputtedSize = $("select#size").val();
+  var inputtedSize = $("select.form-control").val();
   // var numberOfToppingsSelected = toppingsNumber
   // var toppingsNumber = $("input:checkbox[name=toppings]:checked").length;
   var inputtedToppings = $("input.toppings").val();
