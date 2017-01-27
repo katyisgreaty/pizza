@@ -43,6 +43,9 @@ $(document).ready(function(){
   var inputtedSize = $("select#size").val();
   var numberOfToppingsSelected = $('input:checkbox:checked').length;
 
+  myPizza.sizePrice();
+  myPizza.toppingsPrice();
+  
   $("form#order-form").submit(function(event){
       event.preventDefault();
 
