@@ -38,14 +38,12 @@ Pizza.prototype.toppingsPrice = function() {
 
 //front-end logic
 $(document).ready(function(){
-  var inputtedSize = $("select#size").val();
-  var inputtedToppings = $("input.toppings").val();
-  var myPizza = new Pizza (inputtedSize, inputtedToppings, calculatedPrice);
-  var calculatedPrice = myPizza.price;
-
   $("form#order-form").submit(function(event){
       event.preventDefault();
       var inputtedSize = $("select.form-control").val();
+      var inputtedToppings = $("input.toppings").val();
+      var myPizza = new Pizza (inputtedSize, inputtedToppings, calculatedPrice);
+      var calculatedPrice = myPizza.price;
 
       $(".results").show();
 

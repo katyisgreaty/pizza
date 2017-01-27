@@ -28,7 +28,7 @@ _This is a webpage that allows the user to choose the size and toppings of their
 
 ## Known Bugs
 
-_If you change your selection, the price increases and does not get wiped clean every submit. Also, the price function for size does not work._
+_If you change your selection, the price increases and does not get wiped clean every submit. _
 
 ## Support and contact details
 
