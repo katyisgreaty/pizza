@@ -1,5 +1,5 @@
 //back-end logic
-var sizeArray = ['Small (10 inches)', 'Medium (12 inches)', 'Large (14 inches)'];
+var sizeArray = [];
 var toppingsArray = [];
 
 var Pizza = function(size, toppings, price) {
@@ -9,13 +9,13 @@ var Pizza = function(size, toppings, price) {
 };
 
 Pizza.prototype.sizePrice = function() {
-  if (this.selectedSize === "Small (10 inches)") {
+  if (sizeArray[0] === "Small (10 inches)") {
     this.price += 0;
-    console.log("price should be 12");
-  } else if (this.selectedSize === "Medium (12 inches)") {
+  }
+  if (sizeArray[0] === "Medium (12 inches)") {
     this.price += 2;
-    console.log("price should be 14");
-  } else if (this.selectedSize === "Large (14 inches)") {
+    console.log(this.price);
+  } else if (sizeArray[0] === "Large (14 inches)") {
     this.price += 4;
   }
 };
@@ -57,6 +57,8 @@ $(document).ready(function(){
 
 
       $(".results").show();
+
+      sizeArray.push(inputtedSize);
 
       $("input:checkbox[name=toppings]:checked").each(function(){
         var inputtedToppings = $(this).val();
