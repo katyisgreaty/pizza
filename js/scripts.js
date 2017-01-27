@@ -1,5 +1,5 @@
 //back-end logic
-var sizeArray = ['Small (10")', 'Medium (12")', 'Large (14")'];
+var sizeArray = ['Small (10 inches)', 'Medium (12 inches)', 'Large (14 inches)'];
 var toppingsArray = [];
 
 var Pizza = function(size, toppings, price) {
@@ -9,14 +9,13 @@ var Pizza = function(size, toppings, price) {
 };
 
 Pizza.prototype.sizePrice = function() {
-  console.log("calculating price");
-  if (this.selectedSize === sizeArray[0]) {
+  if (this.selectedSize === "Small (10 inches)") {
     this.price += 0;
     console.log("price should be 12");
-  } else if (this.selectedSize === sizeArray[1]) {
+  } else if (this.selectedSize === "Medium (12 inches)") {
     this.price += 2;
     console.log("price should be 14");
-  } else if (this.selectedSize === sizeArray[2]) {
+  } else if (this.selectedSize === "Large (14 inches)") {
     this.price += 4;
   }
 };
@@ -65,8 +64,8 @@ $(document).ready(function(){
         $('#toppingsResults').append(inputtedToppings + ", ");
       });
 
-      myPizza.sizePrice();
       myPizza.toppingsPrice();
+      myPizza.sizePrice();
 
       $("#cost").text(myPizza.price);
       $("#pizzaSizeResults").text(inputtedSize);

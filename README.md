@@ -28,7 +28,7 @@ _This is a webpage that allows the user to choose the size and toppings of their
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+_If you change your selection, the price increases and does not get wiped clean every submit. Also, the price function for size does not work._
 
 ## Support and contact details
 
