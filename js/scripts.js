@@ -2,7 +2,7 @@
 var sizeArray = ['Small (10")', 'Medium (12")', 'Large (14")'];
 var toppingsArray = [];
 
-var Pizza = function(size, toppings) {
+var Pizza = function(size, toppings, price) {
   this.selectedSize = size;
   this.selectedToppings = toppings;
   this.price = 12;
@@ -20,6 +20,7 @@ Pizza.prototype.sizePrice = function() {
     this.price += 4;
   }
 };
+
 
 //CAN I DO THIS AS A FOREACH LOOP INSTEAD OF IF STATEMENTS??
 // Pizza.prototype.toppingsPrice = function() {
@@ -51,9 +52,13 @@ $(document).ready(function(){
 
   $("form#order-form").submit(function(event){
       event.preventDefault();
+      var inputtedSize = $("select.form-control").val();
 
       myPizza.sizePrice();
       // myPizza.toppingsPrice();
+
+
+      
 
       $(".results").show();
 
