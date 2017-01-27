@@ -11,8 +11,7 @@ var Pizza = function(size, toppings, price) {
 Pizza.prototype.sizePrice = function() {
   if (sizeArray[0] === "Small (10 inches)") {
     this.price += 0;
-  }
-  if (sizeArray[0] === "Medium (12 inches)") {
+  } else if (sizeArray[0] === "Medium (12 inches)") {
     this.price += 2;
     console.log(this.price);
   } else if (sizeArray[0] === "Large (14 inches)") {
@@ -40,21 +39,13 @@ Pizza.prototype.toppingsPrice = function() {
 //front-end logic
 $(document).ready(function(){
   var inputtedSize = $("select#size").val();
-  // var numberOfToppingsSelected = toppingsNumber
-  // var toppingsNumber = $("input:checkbox[name=toppings]:checked").length;
   var inputtedToppings = $("input.toppings").val();
   var myPizza = new Pizza (inputtedSize, inputtedToppings, calculatedPrice);
   var calculatedPrice = myPizza.price;
 
-
-
   $("form#order-form").submit(function(event){
       event.preventDefault();
       var inputtedSize = $("select.form-control").val();
-      // toppingsArray.forEach(function(topping) {
-      //
-      // })
-
 
       $(".results").show();
 
