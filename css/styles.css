@@ -18,7 +18,8 @@ span#subtitle {
 }
 
 body {
-  background-color: #cacdc7;
+  background-image: url("http://www.oldsaltys.com/wp-content/uploads/2015/03/Light-Wood-Background-Wallpaper-NEW.jpg");
+  background-size: 100%;
 }
 
 .form-control, .form-group, p {
@@ -41,7 +42,21 @@ body {
 }
 
 .darkResult {
-  color: #362e23;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow:
+ -2px -2px 0 #362e23,
+  2px -2px 0 #362e23,
+  -2px 2px 0 #362e23,
+   2px 2px 0 #362e23;
+}
+
+.buttonColor {
+  background-color: #362e23;
+  font-size: 28px;
+  color: #f1d7c3;
+  margin-left: 400px;;
 }
 
 
