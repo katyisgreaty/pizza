@@ -49,6 +49,8 @@ $(document).ready(function(){
 
     sizeArray.push(inputtedSize);
 
+    $('#toppingsResults').text("");
+
     $("input:checkbox[name=toppings]:checked").each(function(){
       var inputtedToppings = $(this).val();
       toppingsArray.push(inputtedToppings);
@@ -63,13 +65,13 @@ $(document).ready(function(){
     myPizza.price = 12;
     sizeArray = [];
     toppingsArray = [];
+    $("input:checkbox[name=toppings]:checked").prop("checked", false);
 
     // function resetFields() {
     //   $("select.form-control").val("");
     //   $("input.toppings").removeAttr("checked");
     // }
     // resetFields();
-    // $("input:checkbox[name=toppings]:checked").removeAttr("checked, false");
   });
 
 });
