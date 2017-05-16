@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is a webpage that allows the user to choose the size and toppings of their pizza and then see the cost according to what they ordered. The repository can be found at https://github.com/katyisgreaty/pizza _
+_This is a webpage that allows the user to choose the size and toppings of their pizza and then see the cost according to what they ordered. The repository can be found at https://github.com/katyisgreaty/pizza _ 
 
 ## Specs
 
